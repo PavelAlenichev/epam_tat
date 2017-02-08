@@ -6,7 +6,8 @@ public class Checker {
      * REGEX - String, with which we compare input options
      *
      * It says, that option must start with "-" 
-     * I think, that it's most matchable format for that program, where real options aren't declared
+     * I think, that it's most matchable format for that program, 
+     * where real options aren't declared
      */
     private static final String REGEX = "^\\-\\D$";
 
