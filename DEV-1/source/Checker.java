@@ -1,3 +1,6 @@
+/**
+ * Class Checker needs to check valid or not input data
+ */
 public class Checker {
     /**
      * REGEX - String, with which we compare input options
