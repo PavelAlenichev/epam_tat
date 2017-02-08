@@ -3,6 +3,7 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Checker.checkInput(args);
+        Checker checker = new Checker();
+        checker.chexckInput(args);
     }
 }
