@@ -3,13 +3,11 @@
  */
 public class Writer {
     public static void invalidNumberOfOptions() {
-        System.out.println("Invalid number of options. 
-          Number of options must be at least 3.");
+        System.out.println("Invalid number of options. Number of options must be at least 3.");
     }
 
     public static void invalidFormat(){
-        System.out.println("Invalid format options. Try -s -t -k, for example. 
-          And no more 7 letter in one option.");
+        System.out.println("Invalid format options. Try -s -t -k, for example. And no more 7 letter in one option.");
     }
 
     public static void writeThreeOptions(String[] args) {
