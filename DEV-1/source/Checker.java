@@ -12,10 +12,15 @@ public class Checker {
     private static final String REGEX = "^\\-\\D$";
 
     /**
+     * Constructor
+     */
+    public Checker() { }
+    
+    /**
      * Function to check input options. Basics on number of them
      * @param args - array of Strings
      */
-    public static void checkInput(String[] args) {
+    public void checkInput(String[] args) {
         switch (args.length) {
           case 0:
             Writer.invalidNumberOfOptions();
