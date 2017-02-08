@@ -7,7 +7,7 @@ public class Checker {
      * So you can use from 1 letter like in command "shutdown -s -t"
      * To 7 letters like, for example "thunderbird -compose" or "-options"
      */
-    private final static String REGEX = "^\\-\\D{1,7}$";
+    private static final String REGEX = "^\\-\\D{1,7}$";
 
     /**
      * Function to check input options. Basics on number of them
