@@ -5,12 +5,10 @@ public class Checker {
     /**
      * REGEX - String, with which we compare input options
      *
-     * It says, that option must start with "-" and then must be not over 7 Latin letters
+     * It says, that option must start with "-" 
      * I think, that it's most matchable format for that program, where real options aren't declared
-     * So you can use from 1 letter like in command "shutdown -s -t"
-     * To 7 letters like, for example "thunderbird -compose" or "-options"
      */
-    private static final String REGEX = "^\\-\\D{1,7}$";
+    private static final String REGEX = "^\\-\\D$";
 
     /**
      * Function to check input options. Basics on number of them
