@@ -15,44 +15,44 @@ public class Checker {
      */
     public static void checkInput(String[] args) {
         switch (args.length) {
-            case 0:
+          case 0:
+            Writer.invalidNumberOfOptions();
+            break;
+          case 1:
+            if (args[0].matches(REGEX)) {
               Writer.invalidNumberOfOptions();
-              break;
-            case 1:
-              if (args[0].matches(REGEX)) {
-                Writer.invalidNumberOfOptions();
-              } else {
-                  Writer.invalidNumberAndFormat();
-              }
-              break;
-            case 2:
-              if (args[0].matches(REGEX) && args[1].matches(REGEX)) {
-                Writer.invalidNumberOfOptions();
-              } else {
-                  Writer.invalidNumberAndFormat();
-              }
-              break;
-            case 3:
-              if (checkRegex(args)) {
-                Writer.writeThreeOptions(args);
-              } else {
-                  Writer.invalidFormat();
-              }
-              break;
-            case 4:
-              if (checkRegex(args)) {
-                Writer.writeFourMoreOptions(args);
-              } else {
-                  Writer.invalidFormat();
-              }
-              break;
-            default:
-              if (checkRegex(args)) {
-                Writer.writeFourMoreOptions(args);
-              } else {
-                  Writer.invalidFormat();
-              }
-              break;
+            } else {
+                Writer.invalidNumberAndFormat();
+            }
+            break;
+          case 2:
+            if (args[0].matches(REGEX) && args[1].matches(REGEX)) {
+              Writer.invalidNumberOfOptions();
+            } else {
+                Writer.invalidNumberAndFormat();
+            }
+            break;
+          case 3:
+            if (checkRegex(args)) {
+              Writer.writeThreeOptions(args);
+            } else {
+                Writer.invalidFormat();
+            }
+            break;
+          case 4:
+            if (checkRegex(args)) {
+              Writer.writeFourMoreOptions(args);
+            } else {
+                Writer.invalidFormat();
+            }
+            break;
+          default:
+            if (checkRegex(args)) {
+              Writer.writeFourMoreOptions(args);
+            } else {
+                Writer.invalidFormat();
+            }
+            break;
         }
     }
 
