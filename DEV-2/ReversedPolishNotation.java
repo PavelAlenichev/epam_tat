@@ -17,6 +17,9 @@ public class ReversedPolishNotation {
      * @param string
      */
     public ReversedPolishNotation(String string) {
+        if (string == "") {
+          System.out.println("Wrong expression");
+        }
         this.expression = string;
         System.out.println(parseAndCalculate());
     }
