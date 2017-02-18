@@ -10,7 +10,7 @@ import stringHandlers.StringReader;
  */
 public class Main {
 
-  private static final int INTERUPT_NUMBER_OF_OPERATIONS = 3;
+  private static final int INTERRUPT_NUMBER_OF_OPERATIONS = 3;
 
   /**
    * Entry point in application
@@ -30,7 +30,7 @@ public class Main {
       receivedText = concatenator.concatenate(receivedText);
       StringParser parser = new StringParser(receivedText);
 
-      if (operationCounter > INTERUPT_NUMBER_OF_OPERATIONS
+      if (operationCounter > INTERRUPT_NUMBER_OF_OPERATIONS
           && receivedText.equalsIgnoreCase("exit")) {
         break;
       } else {
