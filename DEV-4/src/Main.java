@@ -9,6 +9,8 @@ import stringHandlers.StringReader;
  * Main class in application where others classes are gathering
  */
 public class Main {
+  
+  private static final INTERRUPT_NUMBER_OF_OPERATIONS = 3;
 
   /**
    * Entry point in application
@@ -28,7 +30,8 @@ public class Main {
       receivedText = concatenator.concatenate(receivedText);
       StringParser parser = new StringParser(receivedText);
 
-      if (operationCounter > 3 && receivedText.equalsIgnoreCase("exit")) {
+      if (operationCounter > INTERRUPT_NUMBER_OF_OPERATIONS 
+          && receivedText.equalsIgnoreCase("exit")) {
         break;
       } else {
         outputer.printInConsole(new FrequencyCounter(parser.parse()));
