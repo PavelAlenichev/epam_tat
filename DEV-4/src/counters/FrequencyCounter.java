@@ -11,9 +11,18 @@ import java.util.Map;
  */
 public class FrequencyCounter extends Counter {
 
+  private final double ONE_MORE = 1.0;
+
   private ArrayList<String> listOfWords = new ArrayList<>();
   private HashMap<String, Double> frequencyMap = new HashMap<>();
   private int wholePairCounter = 0;
+
+  /**
+   * Constructor initializes listOfWords
+   */
+  public FrequencyCounter(ArrayList<String> list) {
+    listOfWords = list;
+  }
 
   /**
    * separates every words to char combination and calculate frequency
@@ -27,21 +36,14 @@ public class FrequencyCounter extends Counter {
         if ((((pairOfChars[0] <= 'z') && (pairOfChars[0] >= 'a')) && (((pairOfChars[1] <= 'z') &&
             (pairOfChars[1] >= 'a'))))) {
           if (frequencyMap.containsKey(twoChars)) {
-            frequencyMap.put(twoChars, (frequencyMap.get(twoChars) + 1.0) / wholePairCounter);
+            frequencyMap.put(twoChars, (frequencyMap.get(twoChars) + ONE_MORE) / wholePairCounter);
           } else {
-            frequencyMap.put(twoChars, (1.0 / wholePairCounter));
+            frequencyMap.put(twoChars, (ONE_MORE / wholePairCounter));
           }
         }
       }
     }
     System.out.println(wholePairCounter);
-  }
-
-  /**
-   * Constructor initializes listOfWords
-   */
-  public FrequencyCounter(ArrayList<String> list) {
-    listOfWords = list;
   }
 
   /**
