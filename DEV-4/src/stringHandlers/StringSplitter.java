@@ -5,14 +5,14 @@ import java.util.ArrayList;
 /**
  * Class checks input string for valid separating and split string
  */
-public class StringParser {
+public class StringSplitter {
 
   private String stringToParse;
 
   /**
    * Constructor. stringToParse uses in methods further
    */
-  public StringParser(String stringToParse) {
+  public StringSplitter(String stringToParse) {
     this.stringToParse = stringToParse;
   }
 
@@ -21,7 +21,7 @@ public class StringParser {
    *
    * @return Array of Strings
    */
-  public ArrayList<String> parse() {
+  public ArrayList<String> split() {
     validate();
     String[] arrayOfStrings;
     arrayOfStrings = stringToParse.split(" ");
@@ -33,11 +33,18 @@ public class StringParser {
   }
 
   /**
-   * Check for "_" uses as spaces in string and replace them to do successful split
+   * Check for "_" uses as spaces in string and fix it
    */
   private void validate() {
     if (stringToParse.contains("_")) {
-      stringToParse.replace("_", " ");
+      fix();
     }
+  }
+
+  /**
+   *  replace all "_" to do successful split
+   */
+  private void fix(){
+    stringToParse.replace("_", " ");
   }
 }

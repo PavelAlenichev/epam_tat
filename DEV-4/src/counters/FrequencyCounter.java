@@ -7,11 +7,13 @@ import java.util.Map;
 
 /**
  * Class which count frequency of number pair of letters
- * (magic)
  */
 public class FrequencyCounter extends Counter {
 
   private final double ONE_MORE = 1.0;
+  private final String REGEX_TO_CHECK = "\\W*\\d*\\_*";
+  private final char FIRST_SYMBOL = 'a';
+  private final char LAST_SYMBOL = 'z';
 
   private ArrayList<String> listOfWords = new ArrayList<>();
   private HashMap<String, Double> frequencyMap = new HashMap<>();
@@ -33,8 +35,8 @@ public class FrequencyCounter extends Counter {
       for (int i = 1; i < word.length(); i++) {
         String twoChars = word.substring(i - 1, i + 1).toLowerCase();
         char[] pairOfChars = twoChars.toCharArray();
-        if ((((pairOfChars[0] <= 'z') && (pairOfChars[0] >= 'a')) && (((pairOfChars[1] <= 'z') &&
-            (pairOfChars[1] >= 'a'))))) {
+        if ((((pairOfChars[0] <= LAST_SYMBOL) && (pairOfChars[0] >= FIRST_SYMBOL)) &&
+            (((pairOfChars[1] <= LAST_SYMBOL) && (pairOfChars[1] >= FIRST_SYMBOL))))) {
           if (frequencyMap.containsKey(twoChars)) {
             frequencyMap.put(twoChars, (frequencyMap.get(twoChars) + ONE_MORE) / wholePairCounter);
           } else {
@@ -43,7 +45,6 @@ public class FrequencyCounter extends Counter {
         }
       }
     }
-    System.out.println(wholePairCounter);
   }
 
   /**
@@ -59,7 +60,7 @@ public class FrequencyCounter extends Counter {
    * does methods to find frequency
    */
   private void findFrequency() {
-    validateWordList();
+    fixWordList();
     numberOfPairs();
     calculate();
   }
@@ -77,12 +78,12 @@ public class FrequencyCounter extends Counter {
   }
 
   /**
-   * validating word list because we need to ignore non-letter symbols
+   * fixing word list because we need to ignore non-letter symbols
    */
-  private void validateWordList() {
+  private void fixWordList() {
     for (int i = 0; i < listOfWords.size(); i++) {
       String word = listOfWords.get(i);
-      word = word.replaceAll("\\W*\\d*\\_*", "");
+      word = word.replaceAll(REGEX_TO_CHECK, "");
       listOfWords.remove(i);
       listOfWords.add(i, word);
     }

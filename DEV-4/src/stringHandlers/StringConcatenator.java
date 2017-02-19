@@ -16,7 +16,6 @@ public class StringConcatenator {
   public String concatenate(String newText) {
     currentText = newText;
     concatenateStrings();
-    System.out.println(currentText);
     return currentText;
   }
 
@@ -25,10 +24,12 @@ public class StringConcatenator {
    */
   private void concatenateStrings() {
     partsOfText.add(0, currentText);
+    StringBuilder stringBuilder = new StringBuilder();
     if (partsOfText.size() > 1) {
-      for (int i = 1; i < partsOfText.size(); i++) {
-        currentText = new StringBuilder(partsOfText.get(i) + " ").append(currentText).toString();
+      for (int i = partsOfText.size() - 1; i >= 1; i--) {
+        currentText = stringBuilder.append(partsOfText.get(i) + " ").toString();
       }
+      currentText = stringBuilder.append(partsOfText.get(0)).toString();
     }
   }
 }

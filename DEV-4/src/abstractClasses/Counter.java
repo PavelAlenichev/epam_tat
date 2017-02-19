@@ -1,7 +1,7 @@
 package abstractClasses;
 
 /**
- * Abstract class which provides his methods to _Counter classes
+ * Abstract class which provides his methods to successors
  * it's generic because outputer receives object of this class
  * so it could be every type what we want
  */
@@ -12,14 +12,11 @@ public abstract class Counter<T> {
    * can be used as cap
    * overrides in child classes
    */
-  public T getValue() {
-    return null;
-  }
+  public abstract T getValue();
 
   /**
    * parent method, which overrides in child classes
    * uses to calculate something
    */
-  protected void calculate() {
-  }
+  protected abstract void calculate();
 }
