@@ -32,9 +32,9 @@ public class Main {
           && receivedText.equalsIgnoreCase("exit")) {
         break;
       } else {
-        System.out.println((new FrequencyCounter(parser.split())));
+        System.out.println((new FrequencyCounter(parser.split()).getValue()));
         System.out.print("Words with over 5 letters: ");
-        System.out.println(new WordsCounter(parser.split()));
+        System.out.println(new WordsCounter(parser.split()).getValue());
       }
       System.out.println("After 3 types you can type \"exit\" to stop the program.");
     }
