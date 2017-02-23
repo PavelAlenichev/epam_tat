@@ -5,8 +5,8 @@ package Employees;
  */
 public class Lead extends Employee {
 
-  private int productivity = 2000;
-  private int salary = 1500;
+  private int productivity = 10000;
+  private int salary = 4000;
   private int lidCounter = 0;
 
   @Override
