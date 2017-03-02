@@ -12,16 +12,16 @@ public class SizeGetterFromConsole {
   /**
    * ****************************************************
    * e.g. we have array dimen [x,y]                     *
-   * *
+   *                                                    *
    * the 0th element of returning array is x            *
    * the 1st element of returning array is y            *
-   * *****************************************************
+   ******************************************************
    *
    * also validating inputted variables in other method
    *
    * @return array with ints
    */
-  public int[] getSizeOfMatrix() {
+  public int[] getSizeOfMatrix(){
     int[] size = new int[2];
     String[] parsedInput = new String[2];
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -41,6 +41,7 @@ public class SizeGetterFromConsole {
       }
     }
 
+
     parsedInput = input.split(" ");
     validate(parsedInput);
 
@@ -57,6 +58,8 @@ public class SizeGetterFromConsole {
 
   /**
    * validating inputted values
+   *
+   * @param parsedInput
    */
   private void validate(String[] parsedInput) {
     if (parsedInput.length != 2) {
