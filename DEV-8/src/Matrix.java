@@ -9,9 +9,6 @@ public class Matrix {
 
   /**
    * to define matrix dimension x on y
-   *
-   * @param x
-   * @param y
    */
   public Matrix(int x, int y) {
     this.matrix = new double[x][y];
@@ -21,10 +18,6 @@ public class Matrix {
 
   /**
    * uses to add number at [x,y] coordinate
-   *
-   * @param x
-   * @param y
-   * @param number
    */
   public void addToMatrix(int x, int y, double number) {
     this.matrix[x][y] = number;
@@ -32,10 +25,6 @@ public class Matrix {
 
   /**
    * return [x,y] element of matrix
-   *
-   * @param x
-   * @param y
-   * @return
    */
   public double getElement(int x, int y) {
     return matrix[x][y];

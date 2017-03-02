@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Uses to provide soft bound getting numbers
  */
-public class NumberGetter implements Getter{
+public class NumberGetter implements Getter {
 
   /**
    * get numbers from console and check it, is it Double

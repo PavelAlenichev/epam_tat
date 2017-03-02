@@ -21,8 +21,8 @@ public class MatrixMultiplier {
     for (int r = 0; r < second.getY_param(); r++) {
       for (int i = 0; i < first.getY_param(); i++) {
         for (int j = 0; j < second.getX_param(); j++) {
-          buffer = result.getElement(i,j);
-          buffer = new BigDecimal(first.getElement(i,r) * second.getElement(r,j), MathContext.
+          buffer = result.getElement(i, j);
+          buffer = new BigDecimal(first.getElement(i, r) * second.getElement(r, j), MathContext.
               DECIMAL64);
           buffer.add(buffer);
 

@@ -6,9 +6,9 @@ public class MultiplyValidator {
   public boolean check(Matrix firstMatrix, Matrix secondMatrix) {
     boolean checked;
 
-    if(firstMatrix.getX_param() == secondMatrix.getY_param()) {
+    if (firstMatrix.getX_param() == secondMatrix.getY_param()) {
       checked = true;
-    } else{
+    } else {
       checked = false;
     }
 

@@ -19,8 +19,7 @@ public class Main {
 
     MultiplyValidator validator = new MultiplyValidator();
 
-
-    if ( !validator.check(first, second)) {
+    if (!validator.check(first, second)) {
       System.out.println("Wrong size! Cannot multiply!");
     } else {
       MatrixFiller filler = new MatrixFiller();
@@ -31,7 +30,7 @@ public class Main {
 
       MatrixMultiplier multiplier = new MatrixMultiplier();
       ResultMatrix resultMatrix = new ResultMatrix(first.getY_param(), second.getX_param());
-      multiplier.doAction(first,second, resultMatrix);
+      multiplier.doAction(first, second, resultMatrix);
 
       resultMatrix.toString();
     }

@@ -13,7 +13,7 @@ public class MatrixFiller {
 
     for (int i = 0; i < matrix.getX_param(); i++) {
       for (int j = 0; j < matrix.getY_param(); j++) {
-        matrix.addToMatrix(i,j,number.take());
+        matrix.addToMatrix(i, j, number.take());
       }
     }
   }
