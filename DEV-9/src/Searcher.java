@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 
 /**
- * Created by User on 03.03.2017.
+ * Uses to search some variables in text
  */
 public class Searcher {
 
@@ -9,6 +9,13 @@ public class Searcher {
   private final static String KEY = "key";
   private final static String NEW_LINE = "\n";
 
+  /**
+   * searching such section and save it in Keeper
+   *
+   * @param file
+   * @param section
+   * @param keeper
+   */
   public void searchSection(String file, String section, Keeper keeper){
 
     int firstOccurrence;
@@ -22,6 +29,13 @@ public class Searcher {
     }
   }
 
+  /**
+   * searching such values by key and save them in Keeper
+   *
+   * @param section
+   * @param key
+   * @param keeper
+   */
   public void searchValues(String section, String key, Keeper keeper) {
     key = key + "=";
 
@@ -43,12 +57,22 @@ public class Searcher {
     }
   }
 
-  private boolean isExist(String wholeString, String value, String method){
+  /**
+   * checks for existing some element in section or text
+   * as message in exception use name of method, that called check
+   * to define where is error
+   *
+   * @param wholeString
+   * @param value
+   * @param method
+   * @return true or
+   * @throws NoSuchElementException
+   */
+  private boolean isExist(String wholeString, String value, String method) throws NoSuchElementException{
     if (wholeString.contains(value)) {
       return true;
     } else {
       throw new NoSuchElementException("No such " + method);
     }
   }
-
 }
