@@ -5,10 +5,18 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Created by User on 03.03.2017.
+ * Uses to get text from file as String
  */
 public class FileHandler {
 
+  /**
+   * validating for file existing
+   * Reading file string by string
+   *
+   * @param filePath
+   * @return textFromFile as String
+   * @throws FileNotFoundException
+   */
   public String read(String filePath) throws FileNotFoundException {
 
     exists(filePath);
@@ -30,6 +38,12 @@ public class FileHandler {
     return textFromFile.toString();
   }
 
+  /**
+   * checks for file existing
+   *
+   * @param filePath
+   * @throws FileNotFoundException
+   */
   private void exists(String filePath) throws FileNotFoundException {
     File file = new File(filePath);
     if (!file.exists()) {
