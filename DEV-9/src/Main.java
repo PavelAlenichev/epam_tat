@@ -10,7 +10,8 @@ public class Main {
    */
   public static void main(String[] args) {
 
-
+    ConsoleDialog dialog = new ConsoleDialog();
+    System.out.println(dialog.readSection());
 
   }
 

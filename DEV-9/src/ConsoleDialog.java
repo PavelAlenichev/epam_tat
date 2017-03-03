@@ -19,11 +19,15 @@ public class ConsoleDialog {
     while (attempt > 0) {
       try {
         section = reader.readLine();
-        if (section.getClass().equals("class java.lang.String")) {
+
+        if (section.isEmpty()) {
+          continue;
+        } else {
           break;
         }
       } catch (IOException e) {
         log.log(Level.SEVERE, "Exception: IOException", e);
+        attempt--;
         continue;
       }
     }
