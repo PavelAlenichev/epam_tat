@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Created by User on 03.03.2017.
  */
-public class FileKeeper extends Keeper {
+public class FileKeeper implements IKeeper {
 
   private String textFromFile;
   private String section;

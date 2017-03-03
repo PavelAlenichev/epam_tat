@@ -10,13 +10,13 @@ public class Searcher {
   private final static String NEW_LINE = "\n";
 
   /**
-   * searching such section and save it in Keeper
+   * searching such section and save it in IKeeper
    *
    * @param file
    * @param section
    * @param keeper
    */
-  public void searchSection(String file, String section, Keeper keeper){
+  public void searchSection(String file, String section, IKeeper keeper){
 
     int firstOccurrence;
     int newSection;
@@ -30,13 +30,13 @@ public class Searcher {
   }
 
   /**
-   * searching such values by key and save them in Keeper
+   * searching such values by key and save them in IKeeper
    *
    * @param section
    * @param key
    * @param keeper
    */
-  public void searchValues(String section, String key, Keeper keeper) {
+  public void searchValues(String section, String key, IKeeper keeper) {
     key = key + "=";
 
     int index = 0;
