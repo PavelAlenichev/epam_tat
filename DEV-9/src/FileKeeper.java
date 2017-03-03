@@ -4,12 +4,13 @@ import java.util.List;
 /**
  * Created by User on 03.03.2017.
  */
-public class DataKeeper extends Keeper {
+public class FileKeeper extends Keeper {
 
   private String textFromFile;
+  private String section;
   private ArrayList<String> values = new ArrayList<>();
 
-  public DataKeeper(String textFromFile) {
+  public FileKeeper(String textFromFile) {
     this.textFromFile = textFromFile;
   }
 
@@ -21,5 +22,9 @@ public class DataKeeper extends Keeper {
   @Override
   public void putInformation(String data) {
     values.add(data);
+  }
+
+  public void setSection(String section) {
+    this.section = section;
   }
 }

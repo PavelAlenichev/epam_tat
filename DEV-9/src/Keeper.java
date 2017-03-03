@@ -7,4 +7,5 @@ public abstract class Keeper {
 
   abstract public void putInformation(String data);
 
+  abstract public void setSection(String section);
 }
