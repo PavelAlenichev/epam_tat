@@ -50,5 +50,4 @@ public class FileHandler {
       throw new FileNotFoundException(file.getName());
     }
   }
-
 }
