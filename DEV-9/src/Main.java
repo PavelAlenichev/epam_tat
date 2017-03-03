@@ -4,7 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by User on 03.03.2017.
+ * Gathering all classes to do tasks
+ * has Logger to log messages
  */
 public class Main {
 
