@@ -5,7 +5,7 @@ package Checkers;
  */
 public abstract class Checker {
 
-  public abstract void getDiagonals(String position);
+  public abstract void getDiagonals();
 
   public abstract Integer getNumberOfSteps();
 

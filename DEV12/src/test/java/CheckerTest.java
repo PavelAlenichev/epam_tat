@@ -12,12 +12,14 @@ public class CheckerTest {
   public void checkConstructor() {
     WhiteChecker checker = null;
     try {
-      checker = new WhiteChecker("a1");
+      checker = new WhiteChecker("d1");
     } catch (InvalidPropertiesFormatException e ) {
       System.out.println(e.getMessage());
     }
 
-    checker.getLetterCoord();
+
+    checker.getDiagonals();
+    checker.getDiagonalCoordinates();
   }
 
 }

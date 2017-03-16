@@ -5,7 +5,7 @@ package Checkers;
  */
 public class BlackChecker extends Checker{
 
-  public void getDiagonals(String position) {
+  public void getDiagonals() {
 
   }
 

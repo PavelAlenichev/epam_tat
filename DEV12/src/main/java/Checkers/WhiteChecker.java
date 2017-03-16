@@ -1,12 +1,8 @@
 package Checkers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * Created by User on 16.03.2017.
@@ -26,12 +22,33 @@ public class WhiteChecker extends Checker {
   }
 
   //TODO: add validator in params to check as requested
-  public void getDiagonals(String position) {
+  public void getDiagonals() {
 
-    char pos[] = position.toCharArray();
+    Character diagCoordLetterUp = letterCoord;
+    Integer diagCoordDigitUp = digitCoord;
+    while (diagCoordLetterUp <= 'H') {
+      diagonalCoordinates.put(diagCoordLetterUp, diagCoordDigitUp);
+      diagCoordDigitUp++;
+      diagCoordLetterUp++;
+      if (diagCoordDigitUp > 8) {
+        break;
+      }
+    }
 
+    Character diagCoordLetterDown = letterCoord;
+    Integer diagCoordDigitDown = digitCoord;
 
+    while (diagCoordLetterDown >= 'A') {
+      diagonalCoordinates.put(diagCoordLetterDown, diagCoordDigitDown);
+      diagCoordDigitDown++;
+      diagCoordLetterDown--;
 
+    }
+  }
+
+  public HashMap<Character, Integer> getDiagonalCoordinates() {
+    System.out.println(diagonalCoordinates);
+    return diagonalCoordinates;
   }
 
   private void setSeparateCoords() throws InvalidPropertiesFormatException {
@@ -43,6 +60,11 @@ public class WhiteChecker extends Checker {
       position.add(pos[i]);
     }
 
+    addCoordinates(position);
+  }
+
+  private void addCoordinates(ArrayList<Character> position)
+      throws InvalidPropertiesFormatException {
     if(position.get(0) > '0' && position.get(0) < '9') {
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(0)));
       this.letterCoord = position.get(1);
