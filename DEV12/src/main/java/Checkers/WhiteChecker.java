@@ -1,10 +1,9 @@
 package Checkers;
 
-import Rules.CheckersRules;
-import Rules.Rules;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
+import ValidatorsForTask.ValidatorForCheckers;
 
 /**
  * Created by User on 16.03.2017.
@@ -16,20 +15,19 @@ public class WhiteChecker extends Checker {
   private Character letterCoord;
   private Integer digitCoord;
   private String distCoordinate;
-  private Rules rule;
+  private ValidatorForCheckers validator;
 
 
-  public WhiteChecker(String coordinate, String distCoordinate, Rules rule)
+  public WhiteChecker(String coordinate, String distCoordinate, ValidatorForCheckers validator)
       throws InvalidPropertiesFormatException {
 
-    this.rule = rule;
-    rule.checkForForbiddenCell(coordinate);
+    this.validator = validator;
+    validator.checkForForbiddenCell(coordinate);
     this.coordinate = coordinate.toUpperCase();
     this.distCoordinate = distCoordinate.toUpperCase();
     setSeparateCoords();
   }
 
-  //TODO: add validator in params to check as requested
   private void getDiagonals() {
 
     Character diagCoordLetterUp = letterCoord;
@@ -62,12 +60,9 @@ public class WhiteChecker extends Checker {
     for(int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
     }
-    if (this.coordinate.matches(rule.getCOORDINATE_EXPRESSION())) {
+    if (validator.checkCoordinateForCorrectString(this.coordinate)){
       addCoordinates(position);
-    } else {
-      throw new InvalidPropertiesFormatException("Wrong start coordinate!");
     }
-    addCoordinates(position);
   }
 
   private void addCoordinates(ArrayList<Character> position)
@@ -87,9 +82,9 @@ public class WhiteChecker extends Checker {
 
     getDiagonals();
 
-    rule.checkForForbiddenCell(distCoordinate);
+    validator.checkForForbiddenCell(distCoordinate);
 
-    if (rule.checkBetweenForWhite(diagonalCoordinates, distCoordinate)) {
+    if (validator.checkBetweenForWhite(diagonalCoordinates, distCoordinate)) {
       System.out.println(Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord);
       return Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord;
     } else {

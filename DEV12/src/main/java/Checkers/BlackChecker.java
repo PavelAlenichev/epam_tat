@@ -1,7 +1,6 @@
 package Checkers;
 
-import Rules.CheckersRules;
-import Rules.Rules;
+import ValidatorsForTask.ValidatorForCheckers;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
@@ -16,13 +15,13 @@ public class BlackChecker extends Checker{
   private Character letterCoord;
   private Integer digitCoord;
   private String distCoordinate;
-  private Rules rule;
+  private ValidatorForCheckers validator;
 
 
-  public BlackChecker(String coordinate, String distCoordinate, Rules rule)
+  public BlackChecker(String coordinate, String distCoordinate, ValidatorForCheckers rule)
       throws InvalidPropertiesFormatException {
 
-    this.rule = rule;
+    this.validator = rule;
     rule.checkForForbiddenCell(coordinate);
 
     this.coordinate = coordinate.toUpperCase();
@@ -63,10 +62,8 @@ public class BlackChecker extends Checker{
     for(int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
     }
-    if (this.coordinate.matches(rule.getCOORDINATE_EXPRESSION())) {
+    if (validator.checkCoordinateForCorrectString(this.coordinate)){
       addCoordinates(position);
-    } else {
-      throw new InvalidPropertiesFormatException("Wrong start coordinate!");
     }
   }
 
@@ -87,9 +84,9 @@ public class BlackChecker extends Checker{
 
     getDiagonals();
 
-    rule.checkForForbiddenCell(distCoordinate);
+    validator.checkForForbiddenCell(distCoordinate);
 
-    if (rule.checkBetweenForBlack(diagonalCoordinates, distCoordinate)) {
+    if (validator.checkBetweenForBlack(diagonalCoordinates, distCoordinate)) {
       System.out.println(digitCoord - Integer.parseInt(String.valueOf(distCoordinate.charAt(1))));
       return digitCoord - Integer.parseInt(String.valueOf(distCoordinate.charAt(1)));
     } else {

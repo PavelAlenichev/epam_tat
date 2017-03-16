@@ -30,44 +30,10 @@ public class CheckersRules extends Rules {
   private final String COORDINATE_EXPRESSION = "^[A-Ha-h]{1}[1-8]{1}";
 
 
-  public boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate) {
-
-    char letter = coordinate.charAt(0);
-    int number = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
-
-    boolean checkState = false;
-
-    if (diagonals.get(letter) <= number) {
-      checkState = true;
-    } else if (diagonals.get(letter) > number) {
-      checkState = false;
-    }
-    return checkState;
-  }
 
 
-  public boolean checkBetweenForBlack(Map<Character, Integer> diagonals, String coordinate) {
-    char letter = coordinate.charAt(0);
-    int number = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
-
-    boolean checkState = false;
-
-    if (diagonals.get(letter) >= number) {
-      checkState = true;
-    } else if (diagonals.get(letter) < number) {
-      checkState = false;
-    }
-
-    return checkState;
-  }
-
-  public void checkForForbiddenCell(String coordinate) throws InvalidPropertiesFormatException {
-
-    for(String forbidden : FORBIDDEN_CELLS) {
-      if (coordinate.equalsIgnoreCase(forbidden)) {
-        throw new InvalidPropertiesFormatException("Wrong coordinate. It's on forbidden cell.");
-      }
-    }
+  public ArrayList<String> getFORBIDDEN_CELLS() {
+    return FORBIDDEN_CELLS;
   }
 
   public String getCOORDINATE_EXPRESSION() {

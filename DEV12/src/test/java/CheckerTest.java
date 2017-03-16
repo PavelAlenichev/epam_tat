@@ -1,6 +1,7 @@
 import Checkers.BlackChecker;
 import Checkers.WhiteChecker;
 import Rules.CheckersRules;
+import ValidatorsForTask.ValidatorForCheckers;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Map;
 import org.junit.Test;
@@ -35,8 +36,9 @@ public class CheckerTest {
     BlackChecker checker = null;
 
     CheckersRules rule = new CheckersRules();
+    ValidatorForCheckers validatorForCheckers = new ValidatorForCheckers(rule);
     try {
-      checker = new BlackChecker("A7", "C1", rule);
+      checker = new BlackChecker("A7", "C1", validatorForCheckers);
     } catch (InvalidPropertiesFormatException e ) {
       System.out.println(e.getMessage());
     }

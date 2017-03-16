@@ -1,5 +1,6 @@
 package Rules;
 
+import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Map;
 
@@ -8,12 +9,8 @@ import java.util.Map;
  */
 public abstract class Rules {
 
-  public abstract boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate);
 
-  public abstract boolean checkBetweenForBlack(Map<Character, Integer> diagonals, String coordinate);
-
-  //TODO: REMOVE!!!!!!!!!!!!!!!!!!!!!SOLID!!
-  public abstract void checkForForbiddenCell(String destination) throws InvalidPropertiesFormatException;
+  public abstract ArrayList<String> getFORBIDDEN_CELLS();
 
   public abstract String getCOORDINATE_EXPRESSION();
 
