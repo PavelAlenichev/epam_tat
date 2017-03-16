@@ -1,6 +1,7 @@
 package Checkers;
 
 import Rules.CheckersRules;
+import Rules.Rules;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
@@ -15,10 +16,14 @@ public class WhiteChecker extends Checker {
   private Character letterCoord;
   private Integer digitCoord;
   private String distCoordinate;
+  private Rules rule;
 
 
-  public WhiteChecker(String coordinate, String distCoordinate) throws InvalidPropertiesFormatException {
+  public WhiteChecker(String coordinate, String distCoordinate, Rules rule)
+      throws InvalidPropertiesFormatException {
 
+    this.rule = rule;
+    rule.checkForForbiddenCell(coordinate);
     this.coordinate = coordinate.toUpperCase();
     this.distCoordinate = distCoordinate.toUpperCase();
     setSeparateCoords();
@@ -49,11 +54,6 @@ public class WhiteChecker extends Checker {
     }
   }
 
-  public HashMap<Character, Integer> getDiagonalCoordinates() {
-    System.out.println(diagonalCoordinates);
-    return diagonalCoordinates;
-  }
-
   private void setSeparateCoords() throws InvalidPropertiesFormatException {
 
     char pos[] = this.coordinate.toCharArray();
@@ -61,6 +61,11 @@ public class WhiteChecker extends Checker {
 
     for(int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
+    }
+    if (this.coordinate.matches(rule.getCOORDINATE_EXPRESSION())) {
+      addCoordinates(position);
+    } else {
+      throw new InvalidPropertiesFormatException("Wrong start coordinate!");
     }
     addCoordinates(position);
   }
@@ -74,11 +79,11 @@ public class WhiteChecker extends Checker {
       this.letterCoord = position.get(0);
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(1)));
     } else {
-      throw new InvalidPropertiesFormatException("Wrong");
+      throw new InvalidPropertiesFormatException("Wrong coordinate");
     }
   }
 
-  public Integer getNumberOfSteps(CheckersRules rule) throws InvalidPropertiesFormatException {
+  public Integer getNumberOfSteps() throws InvalidPropertiesFormatException {
 
     getDiagonals();
 

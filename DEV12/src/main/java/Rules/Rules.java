@@ -10,6 +10,12 @@ public abstract class Rules {
 
   public abstract boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate);
 
+  public abstract boolean checkBetweenForBlack(Map<Character, Integer> diagonals, String coordinate);
+
   //TODO: REMOVE!!!!!!!!!!!!!!!!!!!!!SOLID!!
   public abstract void checkForForbiddenCell(String destination) throws InvalidPropertiesFormatException;
+
+  public abstract String getCOORDINATE_EXPRESSION();
+
+
 }

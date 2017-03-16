@@ -8,6 +8,6 @@ import java.util.InvalidPropertiesFormatException;
  */
 public abstract class Checker {
 
-  public abstract Integer getNumberOfSteps(CheckersRules rule) throws InvalidPropertiesFormatException;
+  public abstract Integer getNumberOfSteps() throws InvalidPropertiesFormatException;
 
 }

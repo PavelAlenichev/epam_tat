@@ -1,3 +1,4 @@
+import Checkers.BlackChecker;
 import Checkers.WhiteChecker;
 import Rules.CheckersRules;
 import java.util.InvalidPropertiesFormatException;
@@ -10,26 +11,42 @@ import org.junit.Test;
 public class CheckerTest {
 
 
-  @Test
-  public void checkConstructor() {
+ /* @Test
+  public void checkWhite() {
     WhiteChecker checker = null;
     try {
-      checker = new WhiteChecker("a1", "a2");
+      checker = new WhiteChecker("A1", "D6");
     } catch (InvalidPropertiesFormatException e ) {
       System.out.println(e.getMessage());
     }
 
-    CheckersRules rule = new CheckersRules() {
-      @Override
-      public boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate) {
-        return super.checkBetweenForWhite(diagonals, coordinate);
-      }
-    };
+    CheckersRules rule = new CheckersRules();
 
     try {
       checker.getNumberOfSteps(rule);
     } catch (InvalidPropertiesFormatException e) {
       System.out.println(e.getMessage());
     }
+  }*/
+
+
+  @Test
+  public void checkBlack() {
+    BlackChecker checker = null;
+
+    CheckersRules rule = new CheckersRules();
+    try {
+      checker = new BlackChecker("A7", "C1", rule);
+    } catch (InvalidPropertiesFormatException e ) {
+      System.out.println(e.getMessage());
+    }
+
+
+    try {
+      checker.getNumberOfSteps();
+    } catch (InvalidPropertiesFormatException e) {
+      System.out.println(e.getMessage());
+    }
   }
+
 }
