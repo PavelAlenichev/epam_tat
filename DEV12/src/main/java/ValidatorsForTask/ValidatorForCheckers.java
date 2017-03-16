@@ -61,7 +61,7 @@ public class ValidatorForCheckers {
   public void checkForForbiddenCell(String coordinate)
       throws InvalidPropertiesFormatException {
 
-    for(String forbidden : rules.getFORBIDDEN_CELLS()) {
+    for (String forbidden : rules.getFORBIDDEN_CELLS()) {
       if (coordinate.equalsIgnoreCase(forbidden)) {
         throw new InvalidPropertiesFormatException("Wrong coordinate. It's on forbidden cell.");
       }

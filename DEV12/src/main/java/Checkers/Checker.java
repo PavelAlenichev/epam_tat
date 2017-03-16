@@ -1,6 +1,5 @@
 package Checkers;
 
-import Rules.CheckersRules;
 import java.util.InvalidPropertiesFormatException;
 
 /**

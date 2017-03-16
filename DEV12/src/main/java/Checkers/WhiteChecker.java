@@ -1,9 +1,9 @@
 package Checkers;
 
+import ValidatorsForTask.ValidatorForCheckers;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
-import ValidatorsForTask.ValidatorForCheckers;
 
 /**
  * Created by User on 16.03.2017.
@@ -57,24 +57,24 @@ public class WhiteChecker extends Checker {
     char pos[] = this.coordinate.toCharArray();
     ArrayList<Character> position = new ArrayList<Character>();
 
-    for(int i = 0; i < pos.length; i++) {
+    for (int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
     }
-    if (validator.checkCoordinateForCorrectString(this.coordinate)){
+    if (validator.checkCoordinateForCorrectString(this.coordinate)) {
       addCoordinates(position);
     }
   }
 
   private void addCoordinates(ArrayList<Character> position)
       throws InvalidPropertiesFormatException {
-    if(position.get(0) > '0' && position.get(0) < '9') {
+    if (position.get(0) > '0' && position.get(0) < '9') {
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(0)));
       this.letterCoord = position.get(1);
     } else if (position.get(0) >= 'A' && position.get(0) <= 'H') {
       this.letterCoord = position.get(0);
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(1)));
     } else {
-      throw new InvalidPropertiesFormatException("Wrong coordinate");
+      throw new InvalidPropertiesFormatException("Wrong coordinate ADD COORDS WHITE");
     }
   }
 
@@ -85,10 +85,9 @@ public class WhiteChecker extends Checker {
     validator.checkForForbiddenCell(distCoordinate);
 
     if (validator.checkBetweenForWhite(diagonalCoordinates, distCoordinate)) {
-      System.out.println(Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord);
       return Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord;
     } else {
-      throw new InvalidPropertiesFormatException("Wrong destination coordinate");
+      throw new InvalidPropertiesFormatException("Wrong destination coordinate NUMBER STEPS WHITE");
     }
   }
 }

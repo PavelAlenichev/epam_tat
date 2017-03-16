@@ -8,7 +8,7 @@ import java.util.InvalidPropertiesFormatException;
 /**
  * Created by User on 16.03.2017.
  */
-public class BlackChecker extends Checker{
+public class BlackChecker extends Checker {
 
   private String coordinate;
   private HashMap<Character, Integer> diagonalCoordinates = new HashMap<Character, Integer>();
@@ -59,24 +59,24 @@ public class BlackChecker extends Checker{
     char pos[] = this.coordinate.toCharArray();
     ArrayList<Character> position = new ArrayList<Character>();
 
-    for(int i = 0; i < pos.length; i++) {
+    for (int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
     }
-    if (validator.checkCoordinateForCorrectString(this.coordinate)){
+    if (validator.checkCoordinateForCorrectString(this.coordinate)) {
       addCoordinates(position);
     }
   }
 
   private void addCoordinates(ArrayList<Character> position)
       throws InvalidPropertiesFormatException {
-    if(position.get(0) > '0' && position.get(0) < '9') {
+    if (position.get(0) > '0' && position.get(0) < '9') {
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(0)));
       this.letterCoord = position.get(1);
     } else if (position.get(0) >= 'A' && position.get(0) <= 'H') {
       this.letterCoord = position.get(0);
       this.digitCoord = Integer.parseInt(String.valueOf(position.get(1)));
     } else {
-      throw new InvalidPropertiesFormatException("Wrong");
+      throw new InvalidPropertiesFormatException("Wrong start coordinate ADD COORDINATES");
     }
   }
 
@@ -87,10 +87,9 @@ public class BlackChecker extends Checker{
     validator.checkForForbiddenCell(distCoordinate);
 
     if (validator.checkBetweenForBlack(diagonalCoordinates, distCoordinate)) {
-      System.out.println(digitCoord - Integer.parseInt(String.valueOf(distCoordinate.charAt(1))));
       return digitCoord - Integer.parseInt(String.valueOf(distCoordinate.charAt(1)));
     } else {
-      throw new InvalidPropertiesFormatException("Wrong destination coordinate");
+      throw new InvalidPropertiesFormatException("Wrong destination coordinate NUMBER STEPS BLACK");
     }
   }
 }
