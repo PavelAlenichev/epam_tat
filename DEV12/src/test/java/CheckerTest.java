@@ -1,5 +1,7 @@
 import Checkers.WhiteChecker;
+import Rules.CheckersRules;
 import java.util.InvalidPropertiesFormatException;
+import java.util.Map;
 import org.junit.Test;
 
 /**
@@ -12,14 +14,22 @@ public class CheckerTest {
   public void checkConstructor() {
     WhiteChecker checker = null;
     try {
-      checker = new WhiteChecker("d1");
+      checker = new WhiteChecker("a1", "a2");
     } catch (InvalidPropertiesFormatException e ) {
       System.out.println(e.getMessage());
     }
 
+    CheckersRules rule = new CheckersRules() {
+      @Override
+      public boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate) {
+        return super.checkBetweenForWhite(diagonals, coordinate);
+      }
+    };
 
-    checker.getDiagonals();
-    checker.getDiagonalCoordinates();
+    try {
+      checker.getNumberOfSteps(rule);
+    } catch (InvalidPropertiesFormatException e) {
+      System.out.println(e.getMessage());
+    }
   }
-
 }

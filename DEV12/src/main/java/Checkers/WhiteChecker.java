@@ -1,5 +1,6 @@
 package Checkers;
 
+import Rules.CheckersRules;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
@@ -13,16 +14,18 @@ public class WhiteChecker extends Checker {
   private HashMap<Character, Integer> diagonalCoordinates = new HashMap<Character, Integer>();
   private Character letterCoord;
   private Integer digitCoord;
+  private String distCoordinate;
 
 
-  public WhiteChecker(String coordinate) throws InvalidPropertiesFormatException {
+  public WhiteChecker(String coordinate, String distCoordinate) throws InvalidPropertiesFormatException {
 
     this.coordinate = coordinate.toUpperCase();
+    this.distCoordinate = distCoordinate.toUpperCase();
     setSeparateCoords();
   }
 
   //TODO: add validator in params to check as requested
-  public void getDiagonals() {
+  private void getDiagonals() {
 
     Character diagCoordLetterUp = letterCoord;
     Integer diagCoordDigitUp = digitCoord;
@@ -59,7 +62,6 @@ public class WhiteChecker extends Checker {
     for(int i = 0; i < pos.length; i++) {
       position.add(pos[i]);
     }
-
     addCoordinates(position);
   }
 
@@ -76,9 +78,17 @@ public class WhiteChecker extends Checker {
     }
   }
 
+  public Integer getNumberOfSteps(CheckersRules rule) throws InvalidPropertiesFormatException {
 
-  public Integer getNumberOfSteps() {
+    getDiagonals();
 
-    return 0;
+    rule.checkForForbiddenCell(distCoordinate);
+
+    if (rule.checkBetweenForWhite(diagonalCoordinates, distCoordinate)) {
+      System.out.println(Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord);
+      return Integer.parseInt(String.valueOf(distCoordinate.charAt(1))) - digitCoord;
+    } else {
+      throw new InvalidPropertiesFormatException("Wrong destination coordinate");
+    }
   }
 }
