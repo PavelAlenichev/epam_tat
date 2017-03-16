@@ -49,11 +49,14 @@ public class Inputter {
   public String getPosition(String whichCoordinate) {
     String startPosition = "";
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    RandomForExample random = new RandomForExample();
 
     int attemptCounter = 10;
     while (attemptCounter > 0) {
       try {
-        System.out.println("Print " + whichCoordinate + "(like a5 or E1):");
+        System.out.println("Print " + whichCoordinate + "(like " +
+            random.generateLowerCaseRandomExample() + " or " + random.generateUpperCaseRandomExample()
+            + " ):");
         startPosition = reader.readLine();
         if (startPosition.matches(rules.getCOORDINATE_EXPRESSION())) {
           break;
