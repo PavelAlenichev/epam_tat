@@ -9,7 +9,7 @@ public class BlackChecker extends Checker{
 
   }
 
-  public void getNumberOfSteps() {
-
+  public Integer getNumberOfSteps() {
+    return null;
   }
 }

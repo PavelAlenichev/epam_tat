@@ -7,6 +7,6 @@ public abstract class Checker {
 
   public abstract void getDiagonals(String position);
 
-  public abstract void getNumberOfSteps();
+  public abstract Integer getNumberOfSteps();
 
 }
