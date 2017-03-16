@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by User on 16.03.2017.
+ * Uses to get coordinates and color from console
  */
 public class Inputter {
 
@@ -15,11 +15,18 @@ public class Inputter {
 
   private Rules rules;
 
-
+  /**
+   * using requested rules
+   */
   public Inputter(Rules rules) {
     this.rules = rules;
   }
 
+  /**
+   * getting correct color from console with asking again if there is some fail
+   *
+   * @return color as integer
+   */
   public Integer getColor() {
     Integer color = 0;
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -46,8 +53,14 @@ public class Inputter {
     return color;
   }
 
+  /**
+   * @param whichCoordinate start - if start coordinate destination - if destination coordinate
+   * generates random examples for hints to user
+   *
+   * @return position
+   */
   public String getPosition(String whichCoordinate) {
-    String startPosition = "";
+    String position = "";
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     RandomForExample random = new RandomForExample();
 
@@ -55,10 +68,11 @@ public class Inputter {
     while (attemptCounter > 0) {
       try {
         System.out.println("Print " + whichCoordinate + "(like " +
-            random.generateLowerCaseRandomExample() + " or " + random.generateUpperCaseRandomExample()
+            random.generateLowerCaseRandomExample() + " or " + random
+            .generateUpperCaseRandomExample()
             + " ):");
-        startPosition = reader.readLine();
-        if (startPosition.matches(rules.getCOORDINATE_EXPRESSION())) {
+        position = reader.readLine();
+        if (position.matches(rules.getCOORDINATE_EXPRESSION())) {
           break;
         } else {
           System.out.println("Print coordinates like A5.");
@@ -70,7 +84,6 @@ public class Inputter {
         continue;
       }
     }
-
-    return startPosition;
+    return position;
   }
 }

@@ -5,7 +5,7 @@ import java.util.InvalidPropertiesFormatException;
 import java.util.Map;
 
 /**
- * Created by User on 16.03.2017.
+ * Checks some positions directly of checkers
  */
 public class ValidatorForCheckers {
 
@@ -15,6 +15,13 @@ public class ValidatorForCheckers {
     this.rules = rules;
   }
 
+  /**
+   * defines is it point included in diagonal sector
+   *
+   * uses for white sector, because their diagonals directed at top
+   *
+   * @return true if included false if not
+   */
   public boolean checkBetweenForWhite(Map<Character, Integer> diagonals, String coordinate) {
 
     char letter = coordinate.charAt(0);
@@ -30,7 +37,13 @@ public class ValidatorForCheckers {
     return checkState;
   }
 
-
+  /**
+   * defines is it point included in diagonal sector
+   *
+   * uses for black sector, because their diagonals directed at bottom
+   *
+   * @return true if included false if not
+   */
   public boolean checkBetweenForBlack(Map<Character, Integer> diagonals, String coordinate) {
     char letter = coordinate.charAt(0);
     int number = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
@@ -46,6 +59,12 @@ public class ValidatorForCheckers {
     return checkState;
   }
 
+  /**
+   * uses to check inputted coordinate into checkers class
+   *
+   * @return true if matches with regular expression
+   * @throws InvalidPropertiesFormatException if not valid
+   */
   public boolean checkCoordinateForCorrectString(String coordinate)
       throws InvalidPropertiesFormatException {
     boolean checkState = false;
@@ -57,7 +76,11 @@ public class ValidatorForCheckers {
     return checkState;
   }
 
-
+  /**
+   * uses to check for forbidden (white if CheckersRules) cells
+   *
+   * @throws InvalidPropertiesFormatException if coordinate matches with forbidden cells
+   */
   public void checkForForbiddenCell(String coordinate)
       throws InvalidPropertiesFormatException {
 
@@ -67,5 +90,4 @@ public class ValidatorForCheckers {
       }
     }
   }
-
 }

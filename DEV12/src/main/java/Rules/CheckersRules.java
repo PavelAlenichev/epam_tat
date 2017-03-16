@@ -5,12 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by User on 16.03.2017.
+ * Class describes rules of Checkers
  */
 public class CheckersRules extends Rules {
 
-
-
+  /**
+   * restricted cells
+   */
   private String[] cells = {
       "A2", "A4", "A6", "A8",
       "B1", "B3", "B5", "B7",
@@ -24,7 +25,7 @@ public class CheckersRules extends Rules {
   private List<String> buffer = Arrays.asList(cells);
 
   private final ArrayList<String> FORBIDDEN_CELLS = new ArrayList<String>(buffer);
-  private final String COORDINATE_EXPRESSION = "^[A-Ha-h]{1}[1-8]{1}";
+  private final String COORDINATE_EXPRESSION = "^[A-Ha-h]{1}[1-8]{1}"; //like A1 or b4
   private final Integer MIN_FIELD_SIZE = 1;
   private final Integer MAX_FIELD_SIZE = 8;
   private final Integer BLACK_MAX_START_POSITION = 6;
@@ -54,4 +55,3 @@ public class CheckersRules extends Rules {
     return WHITE_MAX_START_POSITION;
   }
 }
-

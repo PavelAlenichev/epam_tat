@@ -7,16 +7,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by User on 16.03.2017.
+ * Doing task dev-12 there
  */
 public class EntryPoint {
 
   private static Logger log = Logger.getLogger(EntryPoint.class.getName());
 
+  /**
+   * gathering all classes, trying to get values if it error
+   *
+   * @param args not used
+   */
   public static void main(String[] args) {
 
     CheckersRules rules = new CheckersRules();
-    Fabrica fabrica = new Fabrica();
+    Fabric fabric = new Fabric();
     ValidatorForCheckers validatorForCheckers = new ValidatorForCheckers(rules);
     Inputter inputter = new Inputter(rules);
     StartPositionValidator startPositionValidator = new StartPositionValidator(rules);
@@ -38,7 +43,7 @@ public class EntryPoint {
     destPos = inputter.getPosition("destination");
 
     try {
-      checker = fabrica.build(color, startPos, destPos, validatorForCheckers);
+      checker = fabric.build(color, startPos, destPos, validatorForCheckers);
     } catch (InvalidPropertiesFormatException e) {
       log.log(Level.FINER, e.getMessage(), e);
       System.out.println(e.getMessage());

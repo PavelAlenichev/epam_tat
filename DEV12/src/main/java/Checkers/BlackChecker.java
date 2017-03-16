@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
 
 /**
- * Created by User on 16.03.2017.
+ * Class to describe black checkers and way to calculate steps
  */
 public class BlackChecker extends Checker {
 
@@ -17,19 +17,25 @@ public class BlackChecker extends Checker {
   private String distCoordinate;
   private ValidatorForCheckers validator;
 
-
-  public BlackChecker(String coordinate, String distCoordinate, ValidatorForCheckers rule)
+  /**
+   * @param coordinate from which cell we must move checker
+   * @param distCoordinate to where we need to move checker
+   * @param validator to check values
+   */
+  public BlackChecker(String coordinate, String distCoordinate, ValidatorForCheckers validator)
       throws InvalidPropertiesFormatException {
 
-    this.validator = rule;
-    rule.checkForForbiddenCell(coordinate);
+    this.validator = validator;
+    validator.checkForForbiddenCell(coordinate);
 
     this.coordinate = coordinate.toUpperCase();
     this.distCoordinate = distCoordinate.toUpperCase();
     setSeparateCoords();
   }
 
-  //TODO: add validator in params to check as requested
+  /**
+   * get diagonals of moving checker to define boundary values of way
+   */
   private void getDiagonals() {
 
     Character diagCoordLetterUp = letterCoord;
@@ -54,6 +60,11 @@ public class BlackChecker extends Checker {
     }
   }
 
+  /**
+   * check parameters because user can put random numbers in this class
+   * do not allow do it
+   * and save parameters as different variables, not as string
+   */
   private void setSeparateCoords() throws InvalidPropertiesFormatException {
 
     char pos[] = this.coordinate.toCharArray();
@@ -67,6 +78,9 @@ public class BlackChecker extends Checker {
     }
   }
 
+  /**
+   * @param position which divided and save to fields of class
+   */
   private void addCoordinates(ArrayList<Character> position)
       throws InvalidPropertiesFormatException {
     if (position.get(0) > '0' && position.get(0) < '9') {
@@ -80,6 +94,12 @@ public class BlackChecker extends Checker {
     }
   }
 
+  /**
+   * get number of steps from start point to destiny point
+   *
+   * @return number of steps
+   * @throws InvalidPropertiesFormatException when destination point unavailable
+   */
   public Integer getNumberOfSteps() throws InvalidPropertiesFormatException {
 
     getDiagonals();
