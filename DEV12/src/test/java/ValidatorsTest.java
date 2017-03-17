@@ -1,5 +1,4 @@
 import Checkers.BlackChecker;
-import Checkers.Checker;
 import Checkers.WhiteChecker;
 import Rules.CheckersRules;
 import Rules.Colors;

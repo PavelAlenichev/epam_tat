@@ -1,8 +1,5 @@
 import org.junit.Test;
 
-/**
- * Created by User on 17.03.2017.
- */
 public class RandomizerTest {
 
   @Test
@@ -17,6 +14,7 @@ public class RandomizerTest {
     assert (first >= 97 && first <= 104 && second >= 1 && second <= 8);
   }
 
+  @Test
   public void upperCaseTests() {
     RandomForExample randomForExample = new RandomForExample();
 
@@ -27,5 +25,4 @@ public class RandomizerTest {
 
     assert (first >= 65 && first <= 72 && second >= 1 && second <= 8);
   }
-
 }
