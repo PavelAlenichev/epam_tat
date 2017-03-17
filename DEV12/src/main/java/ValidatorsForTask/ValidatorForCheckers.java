@@ -3,6 +3,8 @@ package ValidatorsForTask;
 import Rules.Rules;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Checks some positions directly of checkers
@@ -10,6 +12,7 @@ import java.util.Map;
 public class ValidatorForCheckers {
 
   private Rules rules;
+  private static Logger logger = Logger.getLogger(ValidatorForCheckers.class.getName());
 
   public ValidatorForCheckers(Rules rules) {
     this.rules = rules;
@@ -29,11 +32,16 @@ public class ValidatorForCheckers {
 
     boolean checkState = false;
 
-    if (diagonals.get(letter) <= number) {
-      checkState = true;
-    } else if (diagonals.get(letter) > number) {
-      checkState = false;
+    try {
+      if (diagonals.get(letter) <= number) {
+        checkState = true;
+      } else if (diagonals.get(letter) > number) {
+        checkState = false;
+      }
+    } catch (NullPointerException e) {
+      logger.log(Level.WARNING, e.getMessage(), e);
     }
+
     return checkState;
   }
 
@@ -50,10 +58,14 @@ public class ValidatorForCheckers {
 
     boolean checkState = false;
 
-    if (diagonals.get(letter) >= number) {
-      checkState = true;
-    } else if (diagonals.get(letter) < number) {
-      checkState = false;
+    try {
+      if (diagonals.get(letter) >= number) {
+        checkState = true;
+      } else if (diagonals.get(letter) < number) {
+        checkState = false;
+      }
+    } catch (NullPointerException e) {
+      logger.log(Level.WARNING, e.getMessage(), e);
     }
 
     return checkState;

@@ -112,4 +112,8 @@ public class BlackChecker extends Checker {
       throw new InvalidPropertiesFormatException("Wrong destination coordinate NUMBER STEPS BLACK");
     }
   }
+
+  public String getCoordinate() {
+    return coordinate;
+  }
 }

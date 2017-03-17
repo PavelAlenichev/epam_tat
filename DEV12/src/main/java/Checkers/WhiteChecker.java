@@ -102,7 +102,6 @@ public class WhiteChecker extends Checker {
   public Integer getNumberOfSteps() throws InvalidPropertiesFormatException {
 
     getDiagonals();
-
     validator.checkForForbiddenCell(distCoordinate);
 
     if (validator.checkBetweenForWhite(diagonalCoordinates, distCoordinate)) {
@@ -110,5 +109,9 @@ public class WhiteChecker extends Checker {
     } else {
       throw new InvalidPropertiesFormatException("Wrong destination coordinate NUMBER STEPS WHITE");
     }
+  }
+
+  public String getCoordinate() {
+    return coordinate;
   }
 }
